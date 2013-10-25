@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- CodeLatch f_mode.html -->
+<html>
+<!-- ******************************* Page Style ******************************* -->
+<head>
+<link rel='stylesheet' type='text/css' href='style.css'>
+</head>
+
+<!-- ******************************* Page Content ***************************** -->
+<body>
+<dl></dl> <!-- reduces the space between the header and the table -->
+<h1 style="margin-left:60px;">CodeLatch - Code - Classes</h1>
+<dl></dl>
+
+<p>
+<span class="funcname">Pin.mode(pin,mode) </span>
+ - Sets the operating mode of the specified pin.
+<br>
+<br>
+
+<span class="head1">Parameters</span>
+</p>
+
+<p style="margin-left:80px;">
+<span class="param">pin</span>
+<span class="text1"> - The name of the pin to configure. Pin names are defined in a 
+library header file for each target. Please see the documented targets for specific pin names.
+In general there are definitions for physical IC pins and target defined digital and analog pins.
+They are specified by a P, D, or A followed by a number.</span></p>
+
+<p style="margin-left:100px;">
+<span class="text1">
+P1..Pxx - microcontroller physical pins.<br>
+D0..Dxx - digital pins defined for a given target.<br>
+A0..Axx - analog pins defined for a given target.
+</span></p>
+
+<p style="margin-left:80px;">
+<span class="param">mode </span>
+<span class="text1">
+- The mode of the pin, mode can be one or a valid combination of the following:</span></p>
+<p style="margin-left:100px;">
+<span class="text1">
+OUTPUT<br>
+INPUT<br>
+PULLUP<br>
+PULLDOWN<br>
+OPENDRAIN<br>
+NORMAL<br>
+HYSTERESIS<br>
+ADC<br>
+ALT<br>
+PWM
+</span></p>
+
+
+<p>
+<span class="head1">Return:</span> none.</p>
+
+
+<p><span class="head1">Example Usage</span></p>
+<p style="margin-left:80px;"><span class="text1">
+Pin.mode ( D3, INPUT ); // make pin D3 a digital input.<br>
+Pin.mode ( D3, INPUT | PULLUP ) ; // make pin D3 a digital input with a pull-up.<br>
+Pin.mode ( D3, OUTPUT ); // make pin D3 a digital output.<br>
+Pin.mode ( D3, OUTPUT | OPENDRAIN ); // make pin D3 a digital output with an open-drain drive.<br>
+Pin.mode ( D1, PWM ); // make pin D1 a PWM output.<br>
+Pin.mode ( A2, ADC ); // make pin A2 an ADC input.<br>
+Pin.mode ( P8, OUTPUT); // make pin 8 of the microcontroller a digital output.
+</span></p>
+<!--
+mode(pin, mode)
+set(pin)
+clr(pin)
+toggle(pin)
+read(pin)
+
+pwm(pin)
+readAnalog(pin)
+
+configureInterrupt(pin,type,polarity)
+setInterruptCallback(functionPointer)
+enableInterrupt(pin)
+disableInterrupt(pin)
+getInterruptStatus(pin)
+clearInterruptStatus(pin)
+
+
+
+-->
+
+
+<!--
+#define OUTPUT		0x01
+#define INPUT		0x02
+#define PULLUP		0x04
+#define PULLDOWN		0x08
+#define OPENDRAIN	0x10
+#define NORMAL		0x20
+#define HYSTERESIS	0x40
+#define ADC			0x80
+#define ALT			0x100
+#define PWM			0x200
+
+#define EDGE			0
+#define LEVEL		1
+#define FALLING		0
+#define RISING		1
+#define BOTH			2
+#define LOW			0
+#define HIGH			1
+
+// used to configure I2C SDA and SCL pins
+#define I2C_STANDARD     0
+#define I2C_NOFILTER     1
+#define I2C_HIGH_CURRENT 2
+
+// special pins for external interrupt control
+#define PVD_EVENT       38 // b16
+#define RTC_EVENT       39 // b17
+#define USB_EVENT       40 // b18
+#define ENET_EVENT      41 // b19
+
+	// Sets the pin operating mode.
+	//  pin = physical pin number (1-48)
+	//  mode = operating mode:
+	//        INPUT, OUTPUT,
+	//        OPENDRAIN, PULLUP, PULLDOWN, HYSTERESIS,
+	//        NORMAL, ADC
+	//
+	// Mode functions can be or'ed together
+	// Example: Pin.mode(35,INPUT|PULLUP);
+	void mode(u8 pin, int mode);
+
+	// Set a digital output high.
+	// Example: Pin.set(35);
+	void set(u8 pin);
+
+	// Set a digital output low.
+	// Example: Pin.clr(35);
+	void clr(u8 pin);
+
+	void pwm(u8 pin, u16 value);
+
+
+	// Changes a digital outputs state
+	// from low to high or from high to low.
+	// Example: Pin.toggle(35);
+	void toggle(u8 pin);
+
+	// Reads a digital input pins state.
+	//  returns 0 or 1
+	// Example: state = Pin.read(35);
+	u8 read(u8 pin);
+
+	// Reads an analog pin.
+	//  returns 0..4096
+	u32 readAnalog(u8 pin);
+	
+	// Configures a pin to generate an interrupt.
+	//  pin = physical pin number.
+	//  type = EDGE or LEVEL
+	//  polarity = RISING, FALLING, or BOTH for type = EDGE
+	//             HIGH or LOW for type = LEVEL
+	//
+	// Example: Pin.configureInterrupt(35,EDGE,RISING);
+	int configureInterrupt(u8 pin, u32 type, u32 polarity);
+
+	// Enables interrupts on a pin.
+	//  pin = physical pin number.
+	// Example: Pin.enableInterrupt(35);
+	void enableInterrupt(u8 pin);
+
+	// Disables interrupts on a pin.
+	//  pin = physical pin number.
+	// Example: Pin.disableInterrupt(35);
+	void disableInterrupt(u8 pin);
+
+	u32 getInterruptStatus(u8 pin);
+	u32 getEventStatus(u8 pin);
+	void clearInterruptStatus(u8 pin);
+	void setInterruptCallback(PinInterruptCallbackType funcPtr);
+	
+Examples:
+
+-->
+
+<br>
+<br>
+
+</body>
+</html>

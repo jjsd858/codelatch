@@ -1,0 +1,28 @@
+/* main css style sheet for CodeLatch documentation. */
+/* 
+
+tomato C95E49 
+dark grey background 3c3c3c
+dark chocolate background 2e2019
+red e11717
+
+*/
+
+h1 {font-family: Helvetica; font-size:x-large; color: #E0E0E0; margin-top: 0px;}
+h2 {font-family: Helvetica; font-size:large; color: #FFFFFF; margin-top: 0px;}
+th {font-size: xX-large; color: #FFFFFF;font-weight:100;}
+a:link {text-decoration:none;color: #B0B0B0; font-size:medium; }
+span.groupTitle {color:#C95E49;font-size:4;}
+body{	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+		font-size:large;
+		line-height:200%;
+		color: #FFFFFF;
+		background-color: #323030; }
+
+p {margin-left:60px;}
+p1 {margin-left:80px;color:#FFFFFF;font-size:large;}
+span.head1 {color:#d95E49;font-size:large;}
+span.head2 {color:#850C26;font-size:large;font-weight:bold;}
+span.text1 {color:#a0a0a0;font-size:medium;}
+span.param {color:#FFFFFF;font-size:large;font-weight:bold;}
+span.funcname {color:#EFEA42;font-size:x-large;font-weight:bold;}
